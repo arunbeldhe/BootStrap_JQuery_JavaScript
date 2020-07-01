@@ -32,10 +32,17 @@
       {
         $("p").show();
       });
+
+      $("#six").click(function(){
+    $("p").css({"background-color": "grey", "font-size": "100%"});
+  });
+      $("#ten").click(function(){
+    $("h1").css({"background-color": "red"});
+  });
       
       $("form").submit(function()
       {
-        alert("Thank you!!Form got submitted");
+        alert("Form is submitted!");
       });
 
 
@@ -94,7 +101,7 @@
 
         <div class="container">
     <div class="jumbotron" align="center">
-      <h1>Implementation of jQuery</h1><br>
+      <h1 >Implementation of jQuery</h1><br>
 
     </div></div>
 
@@ -109,10 +116,14 @@
         <button class="btn-success" id="one">Click here to hide image</button>
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <button class="btn btn-secondary" id="two">Click here to show the image</button>
-        <br>
+        <br><br>
         <button class="btn btn-dark" id="three">Click here to  hide paras.</button>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <button class="btn btn-light" id="four">Click here to  show paras.</button>
+        <br><br>
+        <button class="btn btn-info" id="ten">Click here to change title background</button>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button class="btn btn-danger" id="six">Click here to change para background.</button>
       </center><br>
 
 

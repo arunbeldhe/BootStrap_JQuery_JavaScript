@@ -18,28 +18,48 @@
     {
       $("#one").click(function()
       {
-      $("img").hide();
+      $("img").toggle();
     });
-      $("#two").click(function()
-      {
-      $("img").show();
-    });
+    
       $("#three").click(function()
       {
-      $("p").hide();
+      $("p").toggle();
       });
-      $("#four").click(function()
-      {
-        $("p").show();
-      });
-
-      $("#six").click(function(){
-    $("p").css({"background-color": "grey", "font-size": "100%"});
-  });
-      $("#ten").click(function(){
-    $("h1").css({"background-color": "red"});
-  });
       
+      $("div").dblclick(function(){
+    $( this ).toggleClass("divClass2");
+  });
+     
+  
+     $("#four").click(function(){
+    $.get("demo_test.asp", function(data, status){
+      alert("Data: " + data + "\nStatus: " + status);
+    });
+  });
+     
+     $("#ten").click(function(){
+  $.post("demo_test_post.asp",
+  {
+  name: "Mickey Mouse",
+  city: "California"
+  },
+  function(data,status){
+  alert("Data: " + data + "\nStatus: " + status);
+  });
+  });
+
+
+   
+  $("#twe").click(function(){
+    $("#div1").fadeToggle();
+    $("#div2").fadeToggle("slow");
+    $("#div3").fadeToggle(5000);
+  });
+
+ 
+
+
+
       $("form").submit(function()
       {
         alert("Form is submitted!");
@@ -57,6 +77,24 @@
       background-color: lightgrey;
       border: solid;
     }
+   
+.divClass1
+{
+    left-padding:100px;
+    right-padding: 100px;
+    text-align:center;
+    background-color:yellow;
+    border:solid 1px;
+}
+.divClass2
+{
+  left-padding:50px;
+    right-padding: 50px
+    padding:5px;
+    text-align:center;
+    background-color:grey;
+    border:solid 1px;
+}
   </style>
   </head>
   <body>
@@ -106,28 +144,46 @@
     </div></div>
 
                 </div></div>
-    <div class="container">
+    
       
 
 
       <div class="panel panel-defualt" >
         <div class="panel-heading"><center><img src="https://www.pngitem.com/pimgs/m/520-5208614_curso-programacin-front-end-completo-transparent-html-css.png" class="img-thumbnail" width="300" height="300" position="center"></center></div>
+        <br><br>
         <center>
-        <button class="btn-success" id="one">Click here to hide image</button>
+        <button class="btn-success" id="one">Click here to hide/show image</button>
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <button class="btn btn-secondary" id="two">Click here to show the image</button>
-        <br><br>
-        <button class="btn btn-dark" id="three">Click here to  hide paras.</button>
+        <!--<button class="btn btn-secondary" id="two">Click here to show the image</button>
+        <br><br> -->
+        <button class="btn btn-dark" id="three">Click here to  hide/show paras.</button>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <button class="btn btn-light" id="four">Click here to  show paras.</button>
+        <button class="btn btn-warning" id="four">send a http request</button>
         <br><br>
-        <button class="btn btn-info" id="ten">Click here to change title background</button>
+        <button class="btn btn-info" id="ten">Click here to post request</button>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <button class="btn btn-danger" id="six">Click here to change para background.</button>
+        
+        
       </center><br>
+            <center>
+          <div class="divClass1">Double click anywhere to change the background and viveversa</div>
+            </center>
+            <br><br>
+            <center><button id="twe">Click to fade in/out boxes</button><br><br></center>
+            <div id="div1" style="background-color:black; color: white"> <p>The first parameter of $.post() is the URL we wish to request ("demo_test_post.asp").
+
+Then we pass in some data to send along with the request (name and city).
+The ASP script in "demo_test_post.asp" reads the parameters, processes them, and returns a result.
+The third parameter is a callback function. The first callback parameter holds the content of the page requested, and the second callback parameter holds the status of the request. As of jQuery 1.5, all of jQuery's Ajax methods return a superset of the XMLHTTPRequest object. This jQuery XHR object, or "jqXHR," returned by $.post() implements the Promise interface, giving it all the properties, methods, and behavior of a Promise (see Deferred object for more information). The jqXHR.done() (for success), jqXHR.fail() (for error), and jqXHR.always() (for completion, whether success or error; added in jQuery 1.6) methods take a function argument that is called when the request terminates. For information about the arguments this function receives, see the jqXHR Object section of the $.ajax() documentation.
 
 
-        <div class="panel-body" ><p id="five"><b>HTML stands for Hypertext Markup Language, is the standard markup language for documents designed to be displayed in a web browser. It can be assisted by technologies such as Cascading Style Sheets and scripting languages such as JavaScript and VBScript. Web browsers receive HTML documents from a web server or from local storage and render the documents into multimedia web pages. HTML describes the structure of a web page semantically and originally included cues for the appearance of the document.</b></p></div></div>
+</p></div>
+              <br>
+              <div id="div2" style="background-color:grey;"><p>The Promise interface also allows jQuery's Ajax methods, including $.get(), to chain multiple .done(), .fail(), and .always() callbacks on a single request, and even to assign these callbacks after the request may have completed. If the request is already complete, the callback is fired immediately.</p></div>
+              <br>
+              <div id="div3" style="background-color:blue;"></div>
+
+        <div class="" ><p id="five"><b>HTML stands for Hypertext Markup Language, is the standard markup language for documents designed to be displayed in a web browser. It can be assisted by technologies such as Cascading Style Sheets and scripting languages such as JavaScript and VBScript. Web browsers receive HTML documents from a web server or from local storage and render the documents into multimedia web pages. HTML describes the structure of a web page semantically and originally included cues for the appearance of the document.</b></p></div></div>
             <div class="panel panel-defualt">
         
         <div class="panel-body"><p id="five"><b>Cascading Style Sheets (CSS) is a stylesheet language. CSS is designed to enable the separation of presentation and content, including layout, colors, and fonts.[3] This separation can improve content accessibility, provide more flexibility and control in the specification of presentation characteristics, enable multiple web pages to share formatting by specifying the relevant CSS in a separate .css file, and reduce complexity and repetition in the structural content.
@@ -145,7 +201,7 @@ As a multi-paradigm language, JavaScript supports event-driven, functional, and 
     </div>
 
 
-    </div>
+  
     <br>
     
 
